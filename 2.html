@@ -1,0 +1,33 @@
+<p>
+  Insira um número para verificar se ele faz parte da sequência de Fibonacci:
+</p>
+
+<input id="numero" type="number" />
+<button onclick="checkFibonacci()">Verificar</button>
+
+<p id="result"></p>
+
+<script>
+  function Fibonacci(num) {
+    let a = 0;
+    let b = 1;
+    if (num == a || num == b) return true;
+
+    let c = a + b;
+    while (c <= num) {
+      if (c == num) return true;
+      a = b;
+      b = c;
+      c = a + b;
+    }
+    return false;
+  }
+
+  function checkFibonacci() {
+    let numeroDigitado = document.getElementById("numero").value;
+    let resultado = Fibonacci(numeroDigitado)
+      ? " faz parte da sequência de Fibonacci."
+      : " não faz parte da sequência de Fibonacci.";
+    document.getElementById("result").textContent = "O número " + numeroDigitado + resultado;
+  }
+</script>
